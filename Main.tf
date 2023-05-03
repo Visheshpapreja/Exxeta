@@ -38,7 +38,7 @@ locals {
 # Created an EC2 VPC module using the Terraform AWS VPC module from the Terraform registry. The for_each loop is used to create an instance of the module for each environment defined in the "vpc_list" variable.
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
-  version = "3.14.0"
+  version = "4.0.1"
   for_each = local.vpc_list # Use `for_each` to create a separate VPC for each entry
   name = each.key # Set the VPC name as the key of the current `for_each` iteration
   cidr = each.value.vpc_cidr # Set the VPC CIDR block as the `vpc_cidr` value of the current `for_each` iteration
